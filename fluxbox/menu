@@ -1,0 +1,21 @@
+[begin] (fluxbox)
+   [include] (/etc/X11/fluxbox/fluxbox-menu)
+   [exec] (GVIM) {/usr/bin/vim.gtk -g -f} </usr/share/pixmaps/vim-32.xpm>
+   [exec] (Chrome) {/opt/google/chrome/google-chrome} </opt/google/chrome/product_logo_32.xpm>
+   [exec] (Firefox) {/usr/bin/firefox} </usr/share/pixmaps/firefox.png>
+   [exec] (Thunderbird) {/usr/bin/thunderbird} </usr/share/pixmaps/thunderbird.png>
+   [exec] (XTerm (Unicode\)) {uxterm} </usr/share/pixmaps/xterm-color_32x32.xpm>
+   [exec] (rdesktop) { rdesktop 192.168.0.201 -u mpenkov -r disk:home=/home/misha -x lan -x 80 -r clipboard -g 90% } <>
+   [submenu] (Fluxbox Config) {}
+      [exec] (init) { gvim -g -f ~/.fluxbox/init } <>
+      [exec] (menu) { gvim -g -f ~/.fluxbox/menu } <>
+      [exec] (startup) { gvim -g -f ~/.fluxbox/startup } <>
+      [exec] (keys) { gvim -g -f ~/.fluxbox/keys } <>
+   [end]
+   [submenu] (My Styles)
+      [stylesdir] (~/.fluxbox/styles)
+      [exec] (Solarized (Light\)) { xrdb ~/dotfiles/x11/solarized-light.Xresources }
+      [exec] (Solarized (Dark\)) { xrdb ~/dotfiles/x11/solarized-dark.Xresources }
+      [exec] (Tangoesque) { xrdb ~/dotfiles/tangoesque.Xresources }
+   [end]
+[end]
