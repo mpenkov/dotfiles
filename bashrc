@@ -107,11 +107,11 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 set -o vi
-#export LC_PAPER=a4
 
-export PATH=~/bin:$PATH
+export PATH=$HOME/jre1.7.0_07/bin:$PATH
 
-export HISTFILESIZE=10000 # Record last 10,000 commands
-export HISTSIZE=10000 # Record last 10,000 commands per session
-
-source /usr/share/autojump/autojump.sh 
+#
+# This needs to go last since it's an interactive prompt which I have a
+# habit of cancelling half the time.
+#
+ssh-add ~/.ssh/id_rsa
