@@ -5,7 +5,7 @@
 # Lines starting with a '#' are ignored.
 
 # Change your keymap:
-xmodmap "/home/misha/.Xmodmap"
+# xmodmap "/home/misha/.Xmodmap"
 
 # Applications you want to run with fluxbox.
 # MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
@@ -27,6 +27,18 @@ setxkbmap -layout "jp,ru" -option "grp:alt_shift_toggle"
 fbsetbg ~/Pictures/earth.jpg 
 xscreensaver &
 xrdb ~/.Xresources
-exec fluxbox
+
+#
+# disable nautilus/gnome integration so that nautilus is useful
+# (nautilus is called from tools such as blueman)
+#
+gconftool-2 -s -t bool /apps/nautilus/preferences/show_desktop false &
+gconftool-2 -s -t bool /desktop/gnome/background/draw_background false &
+gconftool-2 -s -t bool /apps/nautilus/preferences/show_advanced_permissions true &
+
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
+
+exec ssh-agent fluxbox
 # or if you want to keep a log:
 # exec fluxbox -log "/home/misha/.fluxbox/log"
