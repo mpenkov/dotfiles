@@ -151,3 +151,5 @@ Mod4 t :ExecCommand tuxcmd
 
 # lock screen
 Mod4 l :ExecCommand xscreensaver-command -lock
+
+Mod4 d :ToggleDecor
