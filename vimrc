@@ -8,8 +8,8 @@ set expandtab
 set nobackup
 set number
 
+set bg=dark
 colo solarized
-set bg=light
 
 if has("autocmd")
   filetype plugin indent on
@@ -49,13 +49,16 @@ map <silent> ,V :source $HOME/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc r
 set list
 set listchars=tab:>.
 
+" Set status line
+set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%*
+
 " Always display a status line at the bottom of the window
 set laststatus=2
 set cmdheight=1
 
 set modeline
 
-set fileencodings=utf-8,euc-jp
+set fileencodings=euc-jp,utf-8
 
 set printoptions=paper:a4
 set guifont=Neep\ Alt\ 12
@@ -65,10 +68,10 @@ set hidden
 
 " http://stackoverflow.com/questions/357785/what-is-the-recommended-way-to-use-vim-folding-for-python-code
 " space bar to toggle folds
+set foldmethod=manual
 nnoremap <space> za
 vnoremap <space> zf
-set foldmethod=marker
-" set foldnestmax=2
+set foldnestmax=4
 
 " Disable arrow keys
 inoremap <Up> <Nop>
@@ -80,18 +83,5 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-set pastetoggle=<F12>
-
-let g:tex_fold_enabled=1
-" Don't screw up folds when inserting text that might affect them, until
-" leaving insert mode. Foldmethod is local to the window. Protect against
-" screwing up folding when switching between windows.
-autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
-autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
-
-" Set status line
-set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%*
-call togglebg#map("<F5>")
-
-let g:notes_directory = "~/git/research/notes"
-let g:notes_suffix = ".txt"
+let g:notes_directory="~/git/research/notes"
+let g:notes_suffix=".txt"
