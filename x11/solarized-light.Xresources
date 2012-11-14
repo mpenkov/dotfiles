@@ -1,4 +1,4 @@
-#include ".Xresources"
+#include "Xresources"
 
 !! drop in Solarized colorscheme for Xresources/Xdefaults
 
@@ -38,13 +38,13 @@
 #define S_cyan          #2aa198
 #define S_green         #859900
 
-xterm*background:            S_base03
-xterm*foreground:            S_base00
+xterm*background:            S_base3
+xterm*foreground:            S_base0
 xterm*fading:                40
-xterm*fadeColor:             S_base03
-xterm*cursorColor:           S_base1
-xterm*pointerColorBackground:S_base01
-xterm*pointerColorForeground:S_base1
+xterm*fadeColor:             S_base3
+xterm*cursorColor:           S_base01
+xterm*pointerColorBackground:S_base1
+xterm*pointerColorForeground:S_base01
 
 !! black dark/light
 xterm*color0:                S_base02
