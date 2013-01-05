@@ -11,11 +11,15 @@
       [exec] (menu) { gvim -g -f ~/.fluxbox/menu } <>
       [exec] (startup) { gvim -g -f ~/.fluxbox/startup } <>
       [exec] (keys) { gvim -g -f ~/.fluxbox/keys } <>
+      [exec] (keyboard-us) { setxkbmap -layout "us,ru" -option "grp:alt_shift_toggle" } <>
+      [exec] (keyboard-jp) { setxkbmap -layout "jp,ru" -option "grp:alt_shift_toggle" } <>
+      [exec] (home desktop screen) { xrandr --output LVDS --off --output CRT1 --mode 1920x1080 --pos 0x0 --rotate normal --output DFP1 --off }
+      [exec] (ibus) {ibus-daemon}
    [end]
    [submenu] (My Styles)
       [stylesdir] (~/.fluxbox/styles)
       [exec] (Solarized (Light\)) { xrdb ~/dotfiles/x11/solarized-light.Xresources }
       [exec] (Solarized (Dark\)) { xrdb ~/dotfiles/x11/solarized-dark.Xresources }
-      [exec] (Tangoesque) { xrdb ~/dotfiles/tangoesque.Xresources }
+      [exec] (Tangoesque) { xrdb ~/dotfiles/x11/tangoesque.Xresources }
    [end]
 [end]
