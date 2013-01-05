@@ -23,8 +23,9 @@ export LIBOVERLAY_SCROLLBAR=0
 dropbox start
 udisks-glue
 gnome-sound-applet &
-setxkbmap -layout "jp,ru" -option "grp:alt_shift_toggle" 
-fbsetbg ~/Pictures/earth.jpg 
+setxkbmap -layout "jp,ru" -option "grp:alt_shift_toggle"
+fbsetbg ~/Pictures/earth.jpg
+ibus-daemon &
 xscreensaver &
 xrdb ~/.Xresources
 
