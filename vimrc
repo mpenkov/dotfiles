@@ -9,7 +9,7 @@ set nobackup
 set number
 
 colo solarized
-set bg=light
+set bg=dark
 
 if has("autocmd")
   filetype plugin indent on
