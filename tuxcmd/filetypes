@@ -60,3 +60,11 @@ Action0Name=GVim
 Action0Command=gvim "%s"
 Action0RunInTerminal=0
 Action0AutodetectGUI=1
+
+[dia]
+FileTypeName=Dia diagram
+DefaultAction=0
+NumActions=1
+Action0Command=dia "%s"
+Action0RunInTerminal=0
+Action0AutodetectGUI=0

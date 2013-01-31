@@ -151,5 +151,6 @@ Mod4 t :ExecCommand tuxcmd
 
 # lock screen
 Mod4 l :ExecCommand xscreensaver-command -lock
+#Mod4 s :ExecCommand sudo pm-suspend & xscreensaver-command -lock
 
 Mod4 d :ToggleDecor
