@@ -112,8 +112,6 @@ export PATH=$HOME/jre1.7.0_07/bin:$PATH
 
 source /usr/share/autojump/autojump.sh
 
-#
-# This needs to go last since it's an interactive prompt which I have a
-# habit of cancelling half the time.
-#
-ssh-add ~/.ssh/id_rsa
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export GTK_IM_MODULE=ibus
