@@ -8,7 +8,7 @@ FileTypeName=<directory>
 DefaultAction=0
 NumActions=0
 
-[odt;pptx;ppt;doc;docx;ods]
+[odt;pptx;ppt;doc;docx;ods;xls]
 FileTypeName=LibreOffice document
 DefaultAction=0
 NumActions=1
@@ -17,9 +17,9 @@ Action0Command=libreoffice "%s"
 Action0RunInTerminal=0
 Action0AutodetectGUI=0
 
-[mp4;avi;mpeg;flv]
+[mp4;avi;mpeg;flv;mpg;wav]
 FileTypeName=video
-DefaultAction=1
+DefaultAction=0
 NumActions=3
 Action0Name=VLC
 Action0Command=vlc %s
@@ -34,7 +34,7 @@ Action2Command=avidemux "%s"
 Action2RunInTerminal=0
 Action2AutodetectGUI=1
 
-[jpeg;jpg;png]
+[jpeg;jpg;png;bmp]
 FileTypeName=image
 DefaultAction=0
 NumActions=1
@@ -64,7 +64,4 @@ Action0AutodetectGUI=1
 [dia]
 FileTypeName=Dia diagram
 DefaultAction=0
-NumActions=1
-Action0Command=dia "%s"
-Action0RunInTerminal=0
-Action0AutodetectGUI=0
+NumActions=0
