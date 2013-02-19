@@ -1,4 +1,4 @@
-#include ".Xresources"
+#include "Xresources"
 
 ! terminal colors ------------------------------------------------------------
 ! tangoesque scheme

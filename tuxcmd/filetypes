@@ -8,7 +8,7 @@ FileTypeName=<directory>
 DefaultAction=0
 NumActions=0
 
-[odt;pptx;ppt;doc;docx;ods;xls]
+[odt;pptx;ppt;doc;docx;ods;xls,xlsx]
 FileTypeName=LibreOffice document
 DefaultAction=0
 NumActions=1

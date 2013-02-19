@@ -67,8 +67,9 @@ set hidden
 " space bar to toggle folds
 nnoremap <space> za
 vnoremap <space> zf
-set foldmethod=marker
+set foldmethod=manual
 " set foldnestmax=2
+set nofoldenable
 
 " Disable arrow keys
 inoremap <Up> <Nop>
@@ -92,6 +93,9 @@ autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:las
 " Set status line
 set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%*
 call togglebg#map("<F5>")
+
+" For line-breaks of Japanese text
+set formatoptions+=mM
 
 let g:notes_directory = "~/git/research/notes"
 let g:notes_suffix = ".txt"

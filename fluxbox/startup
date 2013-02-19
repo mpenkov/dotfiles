@@ -23,11 +23,12 @@ export LIBOVERLAY_SCROLLBAR=0
 dropbox start
 udisks-glue
 gnome-sound-applet &
-setxkbmap -layout "jp,ru" -option "grp:alt_shift_toggle"
+setxkbmap -layout "en,ru" -option "grp:alt_shift_toggle"
 fbsetbg ~/Pictures/earth.jpg
 ibus-daemon &
 xscreensaver &
 xrdb ~/.Xresources
+xrdb ~/dotfiles/x11/solarized-dark.Xresources
 
 #
 # disable nautilus/gnome integration so that nautilus is useful
@@ -37,8 +38,16 @@ gconftool-2 -s -t bool /apps/nautilus/preferences/show_desktop false &
 gconftool-2 -s -t bool /desktop/gnome/background/draw_background false &
 gconftool-2 -s -t bool /apps/nautilus/preferences/show_advanced_permissions true &
 
+#
+# synchronize the two copy buffers used by Linux
+#
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
+
+#
+# useful applets
+#
+xfce4-power-manager &
 
 exec ssh-agent fluxbox
 # or if you want to keep a log:

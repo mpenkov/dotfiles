@@ -5,7 +5,7 @@
    [exec] (Firefox) {/usr/bin/firefox} </usr/share/pixmaps/firefox.png>
    [exec] (Thunderbird) {/usr/bin/thunderbird} </usr/share/pixmaps/thunderbird.png>
    [exec] (XTerm (Unicode\)) {uxterm} </usr/share/pixmaps/xterm-color_32x32.xpm>
-   [exec] (rdesktop) { rdesktop 192.168.0.201 -u mpenkov -r disk:home=/home/misha -x lan -x 80 -r clipboard -g 90% } <>
+   [exec] (Guitar Pro 6) {cd ~/GuitarPro6; ./GuitarPro} <~/.local/share/pixmaps/guitarpro6.png>
    [submenu] (Fluxbox Config) {}
       [exec] (init) { gvim -g -f ~/.fluxbox/init } <>
       [exec] (menu) { gvim -g -f ~/.fluxbox/menu } <>

@@ -1,4 +1,4 @@
-#include "~/.Xresources"
+#include "Xresources"
 
 !! drop in Solarized colorscheme for Xresources/Xdefaults
 
