@@ -40,6 +40,9 @@ gconftool-2 -s -t bool /apps/nautilus/preferences/show_advanced_permissions true
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 
+xrdb ~/dotfiles/x11/solarized-dark.Xresources &
+xxkb &
+
 exec ssh-agent fluxbox
 # or if you want to keep a log:
 # exec fluxbox -log "/home/misha/.fluxbox/log"
