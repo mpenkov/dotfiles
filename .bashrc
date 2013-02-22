@@ -115,3 +115,9 @@ source /usr/share/autojump/autojump.sh
 export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export GTK_IM_MODULE=ibus
+
+# 
+# http://superuser.com/questions/117841/get-colors-in-less-command
+#
+export LESS='-R'
+export LESSOPEN='|~/git/dotfiles/lessfilter %s'
