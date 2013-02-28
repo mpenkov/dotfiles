@@ -24,9 +24,8 @@ dropbox start
 udisks-glue
 gnome-sound-applet &
 setxkbmap -layout "en,ru" -option "grp:alt_shift_toggle"
-fbsetbg ~/Pictures/earth.jpg
 ibus-daemon &
-xscreensaver &
+xscreensaver -nosplash &
 xrdb ~/.Xresources
 xrdb ~/dotfiles/x11/solarized-dark.Xresources
 
