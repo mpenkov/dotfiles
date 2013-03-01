@@ -58,18 +58,10 @@ set modeline
 set fileencodings=utf-8,euc-jp
 
 set printoptions=paper:a4
-set guifont=Neep\ Alt\ 12
+"set guifont=Neep\ Alt\ 12
 
 " http://stackoverflow.com/questions/2732267/vim-loses-undo-history-when-changing-buffers
 set hidden
-
-" http://stackoverflow.com/questions/357785/what-is-the-recommended-way-to-use-vim-folding-for-python-code
-" space bar to toggle folds
-nnoremap <space> za
-vnoremap <space> zf
-set foldmethod=manual
-" set foldnestmax=2
-set nofoldenable
 
 " Disable arrow keys
 inoremap <Up> <Nop>
