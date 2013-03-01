@@ -112,10 +112,6 @@ export PATH=$HOME/jre1.7.0_07/bin:$PATH
 
 source /usr/share/autojump/autojump.sh
 
-export QT_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export GTK_IM_MODULE=ibus
-
 # 
 # http://superuser.com/questions/117841/get-colors-in-less-command
 #
