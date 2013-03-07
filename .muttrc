@@ -1,0 +1,3 @@
+# from http://dev.mutt.org/trac/wiki/MuttFaq/Charset
+charset-hook ^us-ascii$ utf-8
+set assumed_charset="utf-8"

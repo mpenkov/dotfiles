@@ -77,7 +77,8 @@ set pastetoggle=<F12>
 
 " Set status line
 set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%*
-call togglebg#map("<F5>")
+
+nnoremap <F5> :GundoToggle<CR>
 
 " For line-breaks of Japanese text
 set formatoptions+=mM
@@ -86,3 +87,4 @@ let g:notes_directory = "~/Dropbox/vim-notes"
 let g:notes_suffix = ".txt"
 
 execute pathogen#infect()
+execute pathogen#helptags()
