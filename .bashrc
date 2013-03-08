@@ -116,4 +116,3 @@ source /usr/share/autojump/autojump.sh
 # http://superuser.com/questions/117841/get-colors-in-less-command
 #
 export LESS='-R'
-export LESSOPEN='|~/git/dotfiles/lessfilter %s'
