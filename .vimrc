@@ -29,7 +29,7 @@ nmap <silent> <c-O> :cp<CR>
 "
 " Change pwd to directory of file
 "
-:autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+":autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
 "
 " Get one-liner autocomments to work properly
@@ -47,7 +47,8 @@ map <silent> ,V :source $HOME/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc r
 
 " Show  tab characters. Visual Whitespace.
 set list
-set listchars=tab:>.
+set listchars=tab:>.,eol:¬
+nmap <leader>l :set list!<CR>
 
 " Always display a status line at the bottom of the window
 set laststatus=2
@@ -85,6 +86,10 @@ set formatoptions+=mM
 
 let g:notes_directory = "~/Dropbox/vim-notes"
 let g:notes_suffix = ".txt"
+
+" For scrolling 
+set mouse=a             " hold shift to copy xterm
+set ttymouse=xterm2     " necessary for gnu screen & mouse
 
 execute pathogen#infect()
 execute pathogen#helptags()
