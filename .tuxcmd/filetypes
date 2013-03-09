@@ -19,7 +19,7 @@ Action0AutodetectGUI=0
 
 [mp4;avi;mpeg;flv;mpg;wav]
 FileTypeName=video
-DefaultAction=0
+DefaultAction=1
 NumActions=3
 Action0Name=VLC
 Action0Command=vlc %s
@@ -65,3 +65,12 @@ Action0AutodetectGUI=1
 FileTypeName=Dia diagram
 DefaultAction=0
 NumActions=0
+
+[yuv]
+FileTypeName=raw video
+DefaultAction=0
+NumActions=1
+Action0Name=CIF
+Action0Command=ffplay -autoexit -s cif %s
+Action0RunInTerminal=0
+Action0AutodetectGUI=0

@@ -1,11 +1,15 @@
 [begin] (fluxbox)
    [include] (/etc/X11/fluxbox/fluxbox-menu)
+   [submenu] (Cheatsheets) {}
+       [exec] (Bash history) { evince ~/Dropbox/cheatsheets/bash-history-cheat-sheet.pdf }
+       [exec] (ViM) { display ~/Dropbox/cheatsheets/vi-vim-cheat-sheet.gif }
+       [exec] (ViM #2) { display ~/Dropbox/cheatsheets/vim.png }
+   [end]
    [exec] (GVIM) {/usr/bin/vim.gtk -g -f} </usr/share/pixmaps/vim-32.xpm>
    [exec] (Chrome) {/opt/google/chrome/google-chrome} </opt/google/chrome/product_logo_32.xpm>
    [exec] (Firefox) {/usr/bin/firefox} </usr/share/pixmaps/firefox.png>
    [exec] (Thunderbird) {/usr/bin/thunderbird} </usr/share/pixmaps/thunderbird.png>
    [exec] (XTerm (Unicode\)) {uxterm} </usr/share/pixmaps/xterm-color_32x32.xpm>
-   [exec] (Guitar Pro 6) {cd ~/GuitarPro6; ./GuitarPro} <~/.local/share/pixmaps/guitarpro6.png>
    [submenu] (Fluxbox Config) {}
       [exec] (init) { gvim -g -f ~/.fluxbox/init } <>
       [exec] (menu) { gvim -g -f ~/.fluxbox/menu } <>
