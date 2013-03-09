@@ -8,6 +8,8 @@ set expandtab
 set nobackup
 set number
 
+syntax on
+
 colo solarized
 set bg=dark
 
