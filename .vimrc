@@ -3,6 +3,7 @@ set nocindent
 set nosmartindent
 set shiftwidth=4
 set tabstop=4
+set softtabstop=4
 set expandtab
 
 set nobackup
@@ -15,6 +16,7 @@ set bg=dark
 
 if has("autocmd")
   filetype plugin indent on
+  autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 endif  
 
 nmap <silent> <c-n> :NERDTreeToggle<CR>
@@ -48,7 +50,7 @@ map ,v :sp $HOME/.vimrc<CR>
 map <silent> ,V :source $HOME/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " Show  tab characters. Visual Whitespace.
-set list
+set nolist
 set listchars=tab:>.,eol:¬
 nmap <leader>l :set list!<CR>
 
@@ -92,6 +94,18 @@ let g:notes_suffix = ".txt"
 " For scrolling 
 set mouse=a             " hold shift to copy xterm
 set ttymouse=xterm2     " necessary for gnu screen & mouse
+
+function! StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
 
 execute pathogen#infect()
 execute pathogen#helptags()
