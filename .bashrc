@@ -118,3 +118,5 @@ export PYTHONIOENCODING="utf-8"
 # http://superuser.com/questions/117841/get-colors-in-less-command
 #
 export LESS='-R'
+
+export TERM=xterm-256color
