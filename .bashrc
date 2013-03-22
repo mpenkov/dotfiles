@@ -112,6 +112,8 @@ export PATH=$HOME/jre1.7.0_07/bin:$PATH
 
 source /usr/share/autojump/autojump.sh
 
+export PYTHONIOENCODING="utf-8"
+
 # 
 # http://superuser.com/questions/117841/get-colors-in-less-command
 #
