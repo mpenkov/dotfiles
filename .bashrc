@@ -109,6 +109,7 @@ fi
 set -o vi
 
 export PATH=$HOME/jre1.7.0_07/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
 
 source /usr/share/autojump/autojump.sh
 
