@@ -17,7 +17,7 @@ Action0Command=libreoffice "%s"
 Action0RunInTerminal=0
 Action0AutodetectGUI=0
 
-[mp4;avi;mpeg;flv;mpg;wav]
+[mp4;avi;mpeg;flv;mpg;wav;webm]
 FileTypeName=video
 DefaultAction=1
 NumActions=3
