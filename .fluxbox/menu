@@ -9,7 +9,6 @@
    [exec] (Chrome) {/opt/google/chrome/google-chrome} </opt/google/chrome/product_logo_32.xpm>
    [exec] (Firefox) {/usr/bin/firefox} </usr/share/pixmaps/firefox.png>
    [exec] (Thunderbird) {/usr/bin/thunderbird} </usr/share/pixmaps/thunderbird.png>
-   [exec] (XTerm (Unicode\)) {uxterm} </usr/share/pixmaps/xterm-color_32x32.xpm>
    [submenu] (Fluxbox Config) {}
       [exec] (init) { gvim -g -f ~/.fluxbox/init } <>
       [exec] (menu) { gvim -g -f ~/.fluxbox/menu } <>
