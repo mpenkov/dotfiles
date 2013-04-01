@@ -1,12 +1,38 @@
 # Here comes the pain...
-caption always "%{=b dw}:%{-b dw}:%{=b dk}[ %{-b dw}%{-b dg}$USER%{-b dw}@%{-b dg}%H %{=b dk}] [ %= %?%{-b dg}%-Lw%?%{+b dk}(%{+b dw}%n:%t%{+b dk})%?(%u)%?%{-b dw}%?%{-b dg}%+Lw%? %{=b dk}]%{-b dw}:%{+b dw}:"
+#
+# The bits inside %{} are like modifiers.
+# %{+b} turns on bold text, and %{-b} turns it off.
+# %{b} makes the current color blue, and %{=b} turns that off.
+# Not sure what %{=} does, but if it's not at the start of the caption, things look wrong.
+# It's possibly a reset of some form.
+# %= right-justifies everything
+#
+# The caption is the first line that contains the host name and a list of open tabs.
+# The currently open tab is surrounded by parentheses.
+#
+caption always "%{=}::%{+b}[ %{-b}%{-b b}$USER%{-b}@%{-b b}%H %{=b}] [ %= %?%-Lw%?(%n:%t)%?(%u)%?%?%+Lw%? ] %{-b}::"
 
+#
+# A backtick is like a variable that keeps getting updated while screen is running.
+# http://www.gnu.org/software/screen/manual/html_node/Backtick.html
+#
+# Here, the value of backtick 2 is the result of calling meminfo.sh.
+# 5 5 specifies the lifespan and autorefresh in seconds, respectively.
+# I'm not sure how they are supposed to work together.
+#
 backtick 2 5 5 $HOME/git/dotfiles/meminfo.sh
-hardstatus alwayslastline "%{+b dw}:%{-b dw}:%{+b dk}[%{-b dg} %0C:%s%a %{=b dk}]-[   %{-b dw}Load%{+b dk}:%{-b dg}%l %{+b dk}] [%{-b dg}%2`%{+b dk}] %=[ %{-b dg}%1`%{=b dk} ]%{-b dw}:%{+b dw}:%<"
 
-sorendition "-b dw"
+#
+# The hard status line contains the time, current load and memory stats.
+#
+hardstatus alwayslastline "::%{+b}[%{-b} %0C:%s%a %{=b}] [ %{-b}Load: %{b}%l %{+b d}] [ %{-b b}%2`%{+b d} ] %= %{-b}::%<"
+
+sorendition "-b dd"
 
 # http://www.samsarin.com/blog/2007/03/11/gnu-screen-working-with-the-scrollback-buffer/
 defscrollback 5000
 
 term screen-256color
+
+bind R eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
+
