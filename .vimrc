@@ -153,3 +153,6 @@ endif
 
 execute pathogen#infect()
 execute pathogen#helptags()
+
+:set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+:set nolist
