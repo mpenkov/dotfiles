@@ -13,3 +13,5 @@
 [color]
 	ui = true
 [diff]
+[push]
+	default = matching

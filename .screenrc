@@ -36,3 +36,5 @@ term screen-256color
 
 bind R eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
 
+# Make xterm scrolling work properly with screen.
+termcapinfo xterm-256color|xterm-color|xterm|xterms|xs|rxvt ti@:te@

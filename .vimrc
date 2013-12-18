@@ -1,3 +1,6 @@
+execute pathogen#infect()
+execute pathogen#helptags()
+
 set autoindent
 set nocindent
 set nosmartindent
@@ -12,7 +15,7 @@ set number
 syntax on
 
 colo solarized
-set bg=dark
+set bg=light
 
 if has("autocmd")
   filetype plugin indent on
