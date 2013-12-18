@@ -15,7 +15,7 @@ set number
 syntax on
 
 colo solarized
-set bg=dark
+set bg=light
 
 if has("autocmd")
   filetype plugin indent on
