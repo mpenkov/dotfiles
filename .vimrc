@@ -24,7 +24,7 @@ set bg=light
 if has("autocmd")
   filetype plugin indent on
   autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2
-endif  
+endif
 
 nmap <silent> <c-n> :NERDTreeToggle<CR>
 nmap <silent> <c-f> :NERDTreeFind<CR>
@@ -50,11 +50,9 @@ set formatoptions+=cro
 
 "
 " Shortcut for editing .vimrc
-" ,v will edit .vimrc
-" ,V will reload it
 "
-map ,v :sp $HOME/.vimrc<CR> 
-map <silent> ,V :source $HOME/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <leader>m :sp $HOME/.vimrc<CR>
+map <silent> <leader>n :source $HOME/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " Show  tab characters. Visual Whitespace.
 set nolist
@@ -74,16 +72,6 @@ set printoptions=paper:a4
 " http://stackoverflow.com/questions/2732267/vim-loses-undo-history-when-changing-buffers
 set hidden
 
-" Disable arrow keys
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-noremap <Up> <C-u>
-noremap <Down> <C-d>
-noremap <Left> :tabprev<CR>
-noremap <Right> :tabnext<CR>
-
 set pastetoggle=<F12>
 
 " Set status line
@@ -97,7 +85,7 @@ set formatoptions+=mM
 let g:notes_directory = "~/Dropbox/vim-notes"
 let g:notes_suffix = ".txt"
 
-" For scrolling 
+" For scrolling
 set mouse=a             " hold shift to copy xterm
 set ttymouse=xterm2     " necessary for gnu screen & mouse
 
@@ -159,3 +147,24 @@ if exists("+showtabline")
 endif
 
 set clipboard=unnamed
+
+"
+" File navigation stuff from DestroyAllSoftware.com
+"
+let mapleader = ","
+"
+" Edit files in the same directory as the current file
+"
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+map <leader>v :view %%
+" Make the current window big, keep everything else context.
+set winwidth=84
+" We have to have a winheight bigger than we want to set winminheight. But if
+" we set winheight to be huge before winminheight, the winminheight set will
+" fail.
+set winheight=5
+set winminheight=5
+set winheight=999
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
