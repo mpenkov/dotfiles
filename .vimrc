@@ -1,6 +1,8 @@
 execute pathogen#infect()
 execute pathogen#helptags()
 
+let mapleader = ","
+
 set autoindent
 set nocindent
 set nosmartindent
@@ -13,6 +15,10 @@ set nobackup
 set number
 
 syntax on
+au BufRead,BufNewFile *.md set filetype=markdown
+
+" http://stackoverflow.com/questions/3534028/mac-terminal-vim-will-only-use-backspace-when-at-the-end-of-a-line
+set backspace=indent,eol,start
 
 colo solarized
 set bg=light
@@ -20,7 +26,7 @@ set bg=light
 if has("autocmd")
   filetype plugin indent on
   autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2
-endif  
+endif
 
 nmap <silent> <c-n> :NERDTreeToggle<CR>
 nmap <silent> <c-f> :NERDTreeFind<CR>
@@ -46,11 +52,9 @@ set formatoptions+=cro
 
 "
 " Shortcut for editing .vimrc
-" ,v will edit .vimrc
-" ,V will reload it
 "
-map ,v :sp $HOME/.vimrc<CR> 
-map <silent> ,V :source $HOME/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <leader>m :sp $HOME/.vimrc<CR>
+map <silent> <leader>n :source $HOME/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " Show  tab characters. Visual Whitespace.
 set nolist
@@ -93,7 +97,7 @@ set formatoptions+=mM
 let g:notes_directory = "~/Dropbox/vim-notes"
 let g:notes_suffix = ".txt"
 
-" For scrolling 
+" For scrolling
 set mouse=a             " hold shift to copy xterm
 set ttymouse=xterm2     " necessary for gnu screen & mouse
 
@@ -154,8 +158,22 @@ if exists("+showtabline")
   set tabline=%!MyTabLine()
 endif
 
-execute pathogen#infect()
-execute pathogen#helptags()
+set clipboard=unnamed
 
-:set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-:set nolist
+"
+" File navigation stuff from DestroyAllSoftware.com
+" Edit files in the same directory as the current file
+"
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+map <leader>v :view %%
+" Make the current window big, keep everything else context.
+set winwidth=84
+" We have to have a winheight bigger than we want to set winminheight. But if
+" we set winheight to be huge before winminheight, the winminheight set will
+" fail.
+set winheight=5
+set winminheight=5
+set winheight=999
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
