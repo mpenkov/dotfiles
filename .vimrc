@@ -1,3 +1,6 @@
+execute pathogen#infect()
+execute pathogen#helptags()
+
 set autoindent
 set nocindent
 set nosmartindent
