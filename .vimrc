@@ -13,6 +13,10 @@ set nobackup
 set number
 
 syntax on
+au BufRead,BufNewFile *.md set filetype=markdown
+
+" http://stackoverflow.com/questions/3534028/mac-terminal-vim-will-only-use-backspace-when-at-the-end-of-a-line
+set backspace=indent,eol,start
 
 colo solarized
 set bg=light
@@ -75,10 +79,10 @@ inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+noremap <Up> <C-u>
+noremap <Down> <C-d>
+noremap <Left> :tabprev<CR>
+noremap <Right> :tabnext<CR>
 
 set pastetoggle=<F12>
 
@@ -154,5 +158,4 @@ if exists("+showtabline")
   set tabline=%!MyTabLine()
 endif
 
-execute pathogen#infect()
-execute pathogen#helptags()
+set clipboard=unnamed
