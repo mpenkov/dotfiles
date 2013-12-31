@@ -50,9 +50,13 @@ set formatoptions+=cro
 
 "
 " Shortcut for editing .vimrc
+" Why does this not work with leader??
 "
-map <leader>m :sp $HOME/.vimrc<CR>
-map <silent> <leader>n :source $HOME/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <Space>m :sp $HOME/.vimrc<CR>
+map <Space>n :source $HOME/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+map <leader>r :set keymap=russian-jcuken-jp<CR>
+map <leader>t :set keymap=<CR>
 
 " Show  tab characters. Visual Whitespace.
 set nolist
