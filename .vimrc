@@ -1,6 +1,8 @@
 execute pathogen#infect()
 execute pathogen#helptags()
 
+let mapleader = ","
+
 set autoindent
 set nocindent
 set nosmartindent
@@ -75,6 +77,16 @@ set printoptions=paper:a4
 
 " http://stackoverflow.com/questions/2732267/vim-loses-undo-history-when-changing-buffers
 set hidden
+
+" Disable arrow keys
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 set pastetoggle=<F12>
 
@@ -154,9 +166,6 @@ set clipboard=unnamed
 
 "
 " File navigation stuff from DestroyAllSoftware.com
-"
-let mapleader = ","
-"
 " Edit files in the same directory as the current file
 "
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
