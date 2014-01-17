@@ -1,7 +1,6 @@
 [user]
-	name = Michael Penkov
-	email = misha.penkov@gmail.com
-
+    name = Michael Penkov
+    email = misha.penkov@gmail.com
 [alias]
     co = checkout
     ci = commit
@@ -48,7 +47,7 @@
 [merge]
     tool = vimdiff
 [color]
-	ui = true
+    ui = true
 [diff]
 [push]
-	default = matching
+    default = matching
