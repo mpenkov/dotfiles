@@ -26,6 +26,7 @@ set bg=light
 if has("autocmd")
   filetype plugin indent on
   autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
 endif
 
 nmap <silent> <c-n> :NERDTreeToggle<CR>
