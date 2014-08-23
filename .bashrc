@@ -65,3 +65,5 @@ export PATH=$PATH:/System/Library/Frameworks/JavaScriptCore.framework/Versions/C
 # TODO: not sure why homebrew doesn't take care of the PATH for us
 #
 export PATH=$PATH:/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/jekyll-1.2.1/bin/
+
+export FLAKE8_STRICT=True
