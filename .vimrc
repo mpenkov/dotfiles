@@ -182,3 +182,7 @@ set winminheight=5
 set winheight=999
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
+
+if exists('+colorcolumn')
+  set colorcolumn=80
+endif
