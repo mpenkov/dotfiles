@@ -1,6 +1,3 @@
-execute pathogen#infect()
-execute pathogen#helptags()
-
 let mapleader = ","
 
 set autoindent
@@ -19,9 +16,6 @@ au BufRead,BufNewFile *.md set filetype=markdown
 
 " http://stackoverflow.com/questions/3534028/mac-terminal-vim-will-only-use-backspace-when-at-the-end-of-a-line
 set backspace=indent,eol,start
-
-colo solarized
-set bg=light
 
 if has("autocmd")
   filetype plugin indent on

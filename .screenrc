@@ -38,3 +38,5 @@ bind R eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
 
 # Make xterm scrolling work properly with screen.
 termcapinfo xterm-256color|xterm-color|xterm|xterms|xs|rxvt ti@:te@
+
+setenv SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
