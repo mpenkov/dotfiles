@@ -3,7 +3,8 @@
 PATH="/usr/local/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
 
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
 export CLICOLOR=1
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
@@ -64,6 +65,18 @@ export PATH=$PATH:/System/Library/Frameworks/JavaScriptCore.framework/Versions/C
 #
 # TODO: not sure why homebrew doesn't take care of the PATH for us
 #
-export PATH=$PATH:/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/jekyll-1.2.1/bin/
+#export PATH=$PATH:/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/jekyll-1.2.1/bin/
+#export PATH=$PATH:/usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/jekyll-2.1.1/bin/
 
 export FLAKE8_STRICT=True
+
+# added by travis gem
+[ -f /Users/misha/.travis/travis.sh ] && source /Users/misha/.travis/travis.sh
+
+#
+# http://docs.python-guide.org/en/latest/dev/virtualenvs/
+#
+export WORKON_HOME=~/envs
+source /usr/local/bin/virtualenvwrapper.sh
+
+export PYTHONPATH=$HOME/src/libsvm-3.21/python:$PYTHONPATH
