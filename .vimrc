@@ -26,11 +26,9 @@ set bg=light
 if has("autocmd")
   filetype plugin indent on
   autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType js setlocal tabstop=2 softtabstop=2 shiftwidth=2
   autocmd FileType rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
 endif
-
-nmap <silent> <c-n> :NERDTreeToggle<CR>
-nmap <silent> <c-f> :NERDTreeFind<CR>
 
 "
 " Make shortcut
@@ -78,16 +76,6 @@ set printoptions=paper:a4
 
 " http://stackoverflow.com/questions/2732267/vim-loses-undo-history-when-changing-buffers
 set hidden
-
-" Disable arrow keys
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
 
 set pastetoggle=<F12>
 
@@ -186,3 +174,17 @@ nnoremap <leader><leader> <c-^>
 if exists('+colorcolumn')
   set colorcolumn=80
 endif
+
+" http://statico.github.io/vim.html
+:nmap \l :setlocal number!<CR>
+:nmap \o :set paste!<CR>
+:set incsearch
+:set ignorecase
+:set smartcase
+:set hlsearch
+:nmap \q :nohlsearch<CR>
+
+:nmap \e :NERDTreeToggle<CR>
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
