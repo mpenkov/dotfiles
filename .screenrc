@@ -20,7 +20,7 @@ caption always "%{=}::%{+b}[ %{-b}%{-b b}$USER%{-b}@%{-b b}%H %{=b}] [ %= %?%-Lw
 # 5 5 specifies the lifespan and autorefresh in seconds, respectively.
 # I'm not sure how they are supposed to work together.
 #
-backtick 2 5 5 $HOME/git/dotfiles/meminfo.sh
+# backtick 2 5 5 $HOME/git/dotfiles/meminfo.sh
 
 #
 # The hard status line contains the time, current load and memory stats.
