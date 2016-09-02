@@ -44,6 +44,8 @@
     ra = !git r --all
     l = "!. ~/.githelpers && pretty_git_log"
     la = !git l --all
+
+    dsf = "!git diff --color $@ | diff-so-fancy"
 [merge]
     tool = vimdiff
 [color]
@@ -51,3 +53,5 @@
 [diff]
 [push]
     default = matching
+[core]
+	compression = 1
