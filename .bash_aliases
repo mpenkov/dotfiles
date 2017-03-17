@@ -44,3 +44,10 @@ function awspdns() {
     aws ec2 describe-instances --instance-ids "$1" | jq .Reservations[0].Instances[0].PublicDnsName
 }
 alias awspdns=awspdns
+
+alias tar=gtar
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
