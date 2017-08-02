@@ -41,9 +41,8 @@ alias scpaws='scp -i ~/.ssh/identities/da-us-west-2.pem'
 alias sshaws='ssh -i ~/.ssh/identities/da-us-west-2.pem'
 
 function awspdns() {
-    aws ec2 describe-instances --instance-ids "$1" | jq .Reservations[0].Instances[0].PublicDnsName
+    aws ec2 describe-instances --instance-ids "$1" | jq .Reservations[0].Instances[0].PublicDnsName --raw-output
 }
-alias awspdns=awspdns
 
 alias tar=gtar
 
@@ -51,3 +50,4 @@ alias tar=gtar
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias hun='history | tail -n 100'
