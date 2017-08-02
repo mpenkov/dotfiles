@@ -75,3 +75,8 @@ export WORKON_HOME=~/envs
 source /usr/local/bin/virtualenvwrapper.sh
 
 export PYTHONPATH=$HOME/src/libsvm-3.21/python:$PYTHONPATH
+
+#
+# https://dev.to/gonedark/tweak-your-terminal-for-git
+#
+[[ -f "$HOME/git/dotfiles/git-completion.bash" ]] && source "$HOME/git/dotfiles/git-completion.bash"
