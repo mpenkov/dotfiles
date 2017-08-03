@@ -3,6 +3,8 @@ dotfiles
 
 My dotfiles.
 
-To install:
+If you know what you're doing, then:
 
-    bash install.sh
+    wget https://raw.githubusercontent.com/mpenkov/dotfiles/master/install.sh -O - | bash
+
+Otherwise, have a look through the individual dotfiles and pick what you like.
