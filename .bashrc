@@ -3,13 +3,15 @@
 PATH="/usr/local/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
 
+#
+# Activate autojump.  On my Mac, it's installed via homebrew.
+# On an Ubuntu system, it would be:
+#
+# source /usr/share/autojump/autojump.bash
+#
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 export CLICOLOR=1
-
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
