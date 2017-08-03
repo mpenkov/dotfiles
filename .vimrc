@@ -1,5 +1,14 @@
+" https://github.com/tpope/vim-pathogen
+"
+" Either install pathogen.vim, or disable the below two lines.
 execute pathogen#infect()
 execute pathogen#helptags()
+
+" https://github.com/altercation/vim-colors-solarized
+"
+" Either install the solarized color scheme, or disable the below two lines.
+colo solarized
+set bg=light
 
 let mapleader = ","
 
@@ -20,9 +29,6 @@ au BufRead,BufNewFile *.md set filetype=markdown
 " http://stackoverflow.com/questions/3534028/mac-terminal-vim-will-only-use-backspace-when-at-the-end-of-a-line
 set backspace=indent,eol,start
 
-colo solarized
-set bg=light
-
 if has("autocmd")
   filetype plugin indent on
   autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2
@@ -39,15 +45,9 @@ nmap <silent> <c-P> :cn<CR>
 nmap <silent> <c-O> :cp<CR>
 
 "
-" Change pwd to directory of file
-"
-":autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
-
-"
 " Get one-liner autocomments to work properly
 "
 set formatoptions+=cro
-
 
 "
 " Shortcut for editing .vimrc
@@ -56,6 +56,7 @@ set formatoptions+=cro
 map <Space>m :sp $HOME/.vimrc<CR>
 map <Space>n :source $HOME/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
+" https://github.com/mpenkov/russian-jcuken-jp.vim
 map <leader>r :set keymap=russian-jcuken-jp<CR>
 map <leader>t :set keymap=<CR>
 
