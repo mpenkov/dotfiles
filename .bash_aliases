@@ -34,8 +34,6 @@ alias df='df -kTh'
 
 alias gvim='gvim -f'
 
-alias jpp="python -m 'json.tool'"
-
 alias tar=gtar
 
 # some more ls aliases
