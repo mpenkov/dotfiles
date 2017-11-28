@@ -54,4 +54,5 @@
 [push]
     default = matching
 [core]
-	compression = 1
+    compression = 1
+    editor = vim
