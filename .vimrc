@@ -8,7 +8,7 @@ execute pathogen#helptags()
 "
 " Either install the solarized color scheme, or disable the below two lines.
 colo solarized
-set bg=light
+set bg=dark
 
 let mapleader = ","
 
@@ -53,7 +53,7 @@ set formatoptions+=cro
 " Shortcut for editing .vimrc
 " Why does this not work with leader??
 "
-map <Space>m :sp $HOME/.vimrc<CR>
+map <Space>m :tabedit $HOME/.vimrc<CR>
 map <Space>n :source $HOME/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " https://github.com/mpenkov/russian-jcuken-jp.vim
@@ -162,13 +162,13 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
 " Make the current window big, keep everything else context.
-set winwidth=84
+" set winwidth=84
 " We have to have a winheight bigger than we want to set winminheight. But if
 " we set winheight to be huge before winminheight, the winminheight set will
 " fail.
 set winheight=5
 set winminheight=5
-set winheight=999
+" set winheight=999
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
@@ -189,3 +189,81 @@ endif
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
+
+" Write temporary files to a single subdirectory to avoid polluting the source tree
+:set directory=$HOME/.vim/swapfiles//
+
+:set relativenumber
+
+" https://statico.github.io/vim3.html
+function! ProseMode()
+  call goyo#execute(0, [])
+  set spell noci nosi noai nolist noshowmode noshowcmd
+  set complete+=s
+endfunction
+
+command! ProseMode call ProseMode()
+nmap \p :ProseMode<CR>
+
+" Lightline
+let g:lightline = {
+\ 'active': {
+\   'left': [['mode', 'paste'], ['filename', 'modified']],
+\   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
+\ },
+\ 'component_expand': {
+\   'linter_warnings': 'LightlineLinterWarnings',
+\   'linter_errors': 'LightlineLinterErrors',
+\   'linter_ok': 'LightlineLinterOK'
+\ },
+\ 'component_type': {
+\   'readonly': 'error',
+\   'linter_warnings': 'warning',
+\   'linter_errors': 'error'
+\ },
+\ }
+
+function! LightlineLinterWarnings() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d ◆', all_non_errors)
+endfunction
+
+function! LightlineLinterErrors() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
+endfunction
+
+function! LightlineLinterOK() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '✓ ' : ''
+endfunction
+
+autocmd User ALELint call s:MaybeUpdateLightline()
+
+" Update and show lightline but only if it's visible (e.g., not in Goyo)
+function! s:MaybeUpdateLightline()
+  if exists('#lightline')
+    call lightline#update()
+  end
+endfunction
+
+" fzf
+set rtp+=/usr/local/opt/fzf
+
+nmap ; :Buffers<CR>
+nmap <Leader>f :Files<CR>
+nmap <Leader>g :Tags<CR>
+
+" Don't lint while editing, it's distracting
+let g:ale_lint_on_text_changed = 'never'
+" You can disable this option too
+" if you don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
