@@ -10,12 +10,12 @@ cd
 url=https://github.com/mpenkov/dotfiles.git
 cloned=~/git/dotfiles
 if [ ! -d "$cloned" ]
-then 
+then
     mkdir -p ~/git
     git clone $url "$cloned"
 fi
 
-for fname in .bash_aliases .bashrc .gitconfig .githelpers .screenrc .vimrc
+for fname in .bash_aliases .bashrc .gitconfig .githelpers .screenrc .vimrc .fzf.bash
 do
     if [ -f "$fname" ] || [ -L "$fname" ]
     then

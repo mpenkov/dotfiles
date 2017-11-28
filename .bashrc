@@ -48,7 +48,7 @@ set -o vi
 
 export PYTHONIOENCODING="utf-8"
 
-# 
+#
 # http://superuser.com/questions/117841/get-colors-in-less-command
 #
 export LESS='-R'
@@ -78,3 +78,5 @@ export PYTHONPATH=$HOME/src/libsvm-3.21/python:$PYTHONPATH
 # https://dev.to/gonedark/tweak-your-terminal-for-git
 #
 [[ -f "$HOME/git/dotfiles/git-completion.bash" ]] && source "$HOME/git/dotfiles/git-completion.bash"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
