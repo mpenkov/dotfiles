@@ -10,7 +10,7 @@ execute pathogen#helptags()
 colo solarized
 set bg=dark
 
-let mapleader = ","
+let mapleader = "-"
 
 set autoindent
 set nocindent
@@ -256,7 +256,7 @@ endfunction
 " fzf
 set rtp+=/usr/local/opt/fzf
 
-nmap ; :Buffers<CR>
+nmap <Leader>; :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>g :Tags<CR>
 
@@ -267,3 +267,5 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+nnoremap <C-c> <C-a>
