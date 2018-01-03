@@ -80,3 +80,11 @@ export PYTHONPATH=$HOME/src/libsvm-3.21/python:$PYTHONPATH
 [[ -f "$HOME/git/dotfiles/git-completion.bash" ]] && source "$HOME/git/dotfiles/git-completion.bash"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+#
+# From https://leanpub.com/the-tao-of-tmux/read
+# most is a better pager that offers syntax highlighting
+#
+if command -v most > /dev/null 2>&1; then
+    export PAGER="most"
+fi
