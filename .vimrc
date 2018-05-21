@@ -269,3 +269,11 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 nnoremap <C-c> <C-a>
+
+" Make autocompletion behave like bash
+set wildmode=longest,list
+" Keep more than 20 commands in history
+set history=1000
+
+" Map %% to %:h, the former is much easier to type
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
