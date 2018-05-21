@@ -82,9 +82,7 @@ export PYTHONPATH=$HOME/src/libsvm-3.21/python:$PYTHONPATH
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 #
-# From https://leanpub.com/the-tao-of-tmux/read
-# most is a better pager that offers syntax highlighting
+# https://github.com/ansible/ansible/issues/32499
+# This issue doesn't just apply to Ansible.
 #
-if command -v most > /dev/null 2>&1; then
-    export PAGER="most"
-fi
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
