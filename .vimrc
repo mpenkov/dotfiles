@@ -1,15 +1,3 @@
-" https://github.com/tpope/vim-pathogen
-"
-" Either install pathogen.vim, or disable the below two lines.
-execute pathogen#infect()
-execute pathogen#helptags()
-
-" https://github.com/altercation/vim-colors-solarized
-"
-" Either install the solarized color scheme, or disable the below two lines.
-colo solarized
-set bg=dark
-
 let mapleader = "-"
 
 set autoindent

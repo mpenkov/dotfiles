@@ -1,15 +1,8 @@
-# Setting PATH for Python 2.7
-# The orginal version is saved in .bash_profile.pysave
-PATH="/usr/local/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
-
 #
-# Activate autojump.  On my Mac, it's installed via homebrew.
+# Activate autojump.
 # On an Ubuntu system, it would be:
 #
-# source /usr/share/autojump/autojump.bash
-#
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+source /usr/share/autojump/autojump.bash
 
 export CLICOLOR=1
 
@@ -57,30 +50,13 @@ export LESS='-R'
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-export PKG_CONFIG_PATH=$HOME/lib/pkgconfig:$PKG_CONFIG_PATH
-
-#
-# for jsc on OS/X
-#
-export PATH=$PATH:/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/
-
 export FLAKE8_STRICT=True
 
 #
 # http://docs.python-guide.org/en/latest/dev/virtualenvs/
 #
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export WORKON_HOME=~/envs
 source /usr/local/bin/virtualenvwrapper.sh
-
-export PYTHONPATH=$HOME/src/libsvm-3.21/python:$PYTHONPATH
-
-#
-# https://dev.to/gonedark/tweak-your-terminal-for-git
-#
-[[ -f "$HOME/git/dotfiles/git-completion.bash" ]] && source "$HOME/git/dotfiles/git-completion.bash"
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 #
 # https://github.com/ansible/ansible/issues/32499
