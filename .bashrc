@@ -69,6 +69,7 @@ export FLAKE8_STRICT=True
 #
 # http://docs.python-guide.org/en/latest/dev/virtualenvs/
 #
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export WORKON_HOME=~/envs
 source /usr/local/bin/virtualenvwrapper.sh
 
