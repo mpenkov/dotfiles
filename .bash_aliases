@@ -40,7 +40,10 @@ alias tar=gtar
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+alias cl='clear'
 alias hun='history | tail -n 100'
 alias tls='tmux list-sessions'
+alias ta='tmux attach'
 alias tat='tmux attach -t'
 alias tsc='tmux switch client -t'
