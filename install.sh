@@ -15,6 +15,10 @@ then
     git clone $url "$cloned"
 fi
 
+cd "$cloned"
+git checkout remote
+cd
+
 for fname in .bash_aliases .bashrc .gitconfig .githelpers .screenrc .tmux.conf .vimrc .fzf.bash
 do
     if [ -f "$fname" ] || [ -L "$fname" ]
