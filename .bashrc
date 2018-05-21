@@ -56,7 +56,6 @@ export FLAKE8_STRICT=True
 # http://docs.python-guide.org/en/latest/dev/virtualenvs/
 #
 export WORKON_HOME=~/envs
-source /usr/local/bin/virtualenvwrapper.sh
 
 #
 # https://github.com/ansible/ansible/issues/32499
