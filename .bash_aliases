@@ -47,3 +47,5 @@ alias tls='tmux list-sessions'
 alias ta='tmux attach'
 alias tat='tmux attach -t'
 alias tsc='tmux switch client -t'
+
+alias zcat="gunzip -dc"

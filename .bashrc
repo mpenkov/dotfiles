@@ -1,7 +1,4 @@
-# Setting PATH for Python 2.7
-# The orginal version is saved in .bash_profile.pysave
-PATH="/usr/local/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
+export PATH="/usr/local/opt/python/libexec/bin:/usr/local/sbin:$PATH"
 
 #
 # Activate autojump.  On my Mac, it's installed via homebrew.
@@ -87,3 +84,5 @@ export PYTHONPATH=$HOME/src/libsvm-3.21/python:$PYTHONPATH
 # This issue doesn't just apply to Ansible.
 #
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+export PATH=~/bin:$PATH
