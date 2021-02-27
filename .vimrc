@@ -277,3 +277,9 @@ set history=1000
 
 " Map %% to %:h, the former is much easier to type
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" for vimwiki <https://vimwiki.github.io/>
+set nocompatible
+filetype plugin on
+syntax on
+let g:vimwiki_list = [{"path": "~/Dropbox/wiki", "format": "markdown", "ext": ".md"}]
