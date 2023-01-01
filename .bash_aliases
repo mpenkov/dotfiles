@@ -34,8 +34,6 @@ alias df='df -kTh'
 
 alias gvim='gvim -f'
 
-alias tar=gtar
-
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -47,3 +45,7 @@ alias tls='tmux list-sessions'
 alias ta='tmux attach'
 alias tat='tmux attach -t'
 alias tsc='tmux switch client -t'
+
+alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+
+alias juke='jq . -S | less'
