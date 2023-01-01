@@ -1,0 +1,48 @@
+interval=5
+signal=10
+
+# https://github.com/miklhh/i3blocks-config/blob/master/.config/i3blocks/config
+
+[touchpad]
+command=python3 ~/.config/i3blocks/touchpadoff.py
+interval=1
+
+[sleep_inhibitors]
+command=python3 ~/.config/i3blocks/sleep_inhibitors.py
+interval=60
+
+[lockinfo]
+command=python3 ~/.config/i3blocks/lockinfo.py
+interval=5
+
+[keyboard]
+command=~/.config/i3blocks/kblayout.sh
+interval=1
+
+[SOUND]
+full_text= 🔇:  0%
+command=~/.config/i3blocks/sound_info.sh
+interval=1
+
+[BATTERY]
+command=~/.config/i3blocks/battery_info.sh
+interval=60
+
+[CPU]
+full_text= CPU:  0.00% @ +00.0°C
+command=~/.config/i3blocks/cpu_info.sh
+interval=10
+color=#00B4EB
+
+[MEM]
+command=free -h | awk '/Mem:/ { printf(" 🐏 %5s/%s \n", $3, $2) }'
+interval=60
+color=#FEC925
+
+[DISK]
+command=df -h / | awk '/\//{ printf(" 💾 %4s/%s \n", $4, $2) }'
+interval=60
+color=#C9E3DB
+
+[time]
+command=date "+%Y-%m-%d %T"
