@@ -8,7 +8,7 @@ execute pathogen#helptags()
 "
 " Either install the solarized color scheme, or disable the below two lines.
 colo solarized
-set bg=dark
+set bg=light
 
 let mapleader = "-"
 
@@ -31,10 +31,22 @@ set backspace=indent,eol,start
 
 if has("autocmd")
   filetype plugin indent on
-  autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd FileType js setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2 nocindent nosmartindent indentexpr=
+  autocmd FileType js setlocal tabstop=2 softtabstop=2 shiftwidth=2 nocindent indentexpr=
   autocmd FileType rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType go setlocal noexpandtab tabstop=4 softtabstop=4 shiftwidth=4 formatoptions+=cro
 endif
+
+" https://github.com/fatih/vim-go/wiki/Tutorial
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+nnoremap <leader>a :cclose<CR>
+let g:go_list_type = "quickfix"
+let g:go_fmt_autosave = 0
+let g:go_imports_autosave = 0
 
 "
 " Make shortcut
@@ -59,6 +71,9 @@ map <Space>n :source $HOME/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc relo
 " https://github.com/mpenkov/russian-jcuken-jp.vim
 map <leader>r :set keymap=russian-jcuken-jp<CR>
 map <leader>t :set keymap=<CR>
+set keymap=russian-jcuken-jp
+set iminsert=0  " disable the keymap in insert mode by default
+set imsearch=-1
 
 " Show  tab characters. Visual Whitespace.
 set nolist
@@ -205,54 +220,6 @@ endfunction
 command! ProseMode call ProseMode()
 nmap \p :ProseMode<CR>
 
-" Lightline
-let g:lightline = {
-\ 'active': {
-\   'left': [['mode', 'paste'], ['filename', 'modified']],
-\   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
-\ },
-\ 'component_expand': {
-\   'linter_warnings': 'LightlineLinterWarnings',
-\   'linter_errors': 'LightlineLinterErrors',
-\   'linter_ok': 'LightlineLinterOK'
-\ },
-\ 'component_type': {
-\   'readonly': 'error',
-\   'linter_warnings': 'warning',
-\   'linter_errors': 'error'
-\ },
-\ }
-
-function! LightlineLinterWarnings() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d ◆', all_non_errors)
-endfunction
-
-function! LightlineLinterErrors() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
-endfunction
-
-function! LightlineLinterOK() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '✓ ' : ''
-endfunction
-
-autocmd User ALELint call s:MaybeUpdateLightline()
-
-" Update and show lightline but only if it's visible (e.g., not in Goyo)
-function! s:MaybeUpdateLightline()
-  if exists('#lightline')
-    call lightline#update()
-  end
-endfunction
-
 " fzf
 set rtp+=/usr/local/opt/fzf
 
@@ -261,10 +228,10 @@ nmap <Leader>f :Files<CR>
 nmap <Leader>g :Tags<CR>
 
 " Don't lint while editing, it's distracting
-let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_text_changed = 'never'
 " You can disable this option too
 " if you don't want linters to run on opening a file
-let g:ale_lint_on_enter = 0
+" let g:ale_lint_on_enter = 0
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
@@ -277,3 +244,16 @@ set history=1000
 
 " Map %% to %:h, the former is much easier to type
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" for vimwiki <https://vimwiki.github.io/>
+set nocompatible
+filetype plugin on
+
+let g:vimwiki_list = [{'path': '~/Dropbox/wiki', 'syntax': 'markdown', 'ext': '.md'}]
+
+" practical vim
+" page 79: buffer list traversal
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
