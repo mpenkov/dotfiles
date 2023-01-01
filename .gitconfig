@@ -1,6 +1,6 @@
 [user]
     name = Michael Penkov
-    email = misha.penkov@gmail.com
+    email = m@penkov.dev
 [alias]
     co = checkout
     ci = commit
@@ -46,6 +46,7 @@
     la = !git l --all
 
     dsf = "!git diff --color $@ | diff-so-fancy"
+    pom = push origin master
 [merge]
     tool = vimdiff
 [color]
