@@ -24,7 +24,7 @@ font pango:monospace 8
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- /home/misha/bin/lock-screen
+exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/lock-screen.sh
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -210,7 +210,7 @@ exec --no-startup-id xrandr --output eDP1 --mode 1920x1080
 # Also disable two-finger scolling and emulated right-button (two-finger tap)
 #
 exec synclient PalmDetect=0 HorizTwoFingerScroll=1 TapButton2=0 VertTwoFingerScroll=1 VertEdgeScroll=0 TouchpadOff=0
-bindsym Control+mod1+l exec /home/misha/bin/lock-screen
+bindsym Control+mod1+l exec ~/.config/i3/lock-screen.sh
 bindsym $mod+t exec python3 /home/misha/bin/touchpadoff.py toggle && $refresh-i3-status
 # bindsym $mod+y exec python3 /home/misha/bin/touchpadoff.py off && $refresh-i3-status
 bindsym $mod+y exec /home/misha/bin/workswitch -touchpadoff toggle && $refresh-i3-status
