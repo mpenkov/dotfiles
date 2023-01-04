@@ -49,3 +49,4 @@ alias tsc='tmux switch client -t'
 alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
 
 alias juke='jq . -S | less'
+alias i3cfg='vim ~/.config/i3/config'

@@ -4,7 +4,7 @@ signal=10
 # https://github.com/miklhh/i3blocks-config/blob/master/.config/i3blocks/config
 
 [touchpad]
-command=python3 ~/.config/i3blocks/touchpadoff.py
+command=workswitch -touchpadindicator
 interval=1
 
 [sleep_inhibitors]
@@ -16,7 +16,7 @@ command=python3 ~/.config/i3blocks/lockinfo.py
 interval=5
 
 [keyboard]
-command=~/.config/i3blocks/kblayout.sh
+command=workswitch -keyboardindicator
 interval=1
 
 [SOUND]

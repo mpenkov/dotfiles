@@ -49,6 +49,7 @@ fi
 #
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 export WORKON_HOME=$HOME/envs
+export PATH=~/.local/bin:$PATH
 
 #
 # https://dev.to/gonedark/tweak-your-terminal-for-git
@@ -72,3 +73,9 @@ export body
 #
 /usr/bin/setxkbmap -option "ctrl:nocaps"
 xmodmap ~/.Xmodmap
+
+. /usr/share/autojump/autojump.sh
+
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus

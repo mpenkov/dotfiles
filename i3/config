@@ -30,12 +30,51 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/lock-screen.
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+#
+# define constants for the keycodes here so we can use them in bindcode.
+# This makes the bindings keyboard layout-independent.
+# The integers come from $(xmodmap -pke).
+#
+set $q 24
+set $w 25
+set $e 26
+set $r 27
+set $t 28
+set $y 29
+set $u 30
+set $i 31
+set $o 32
+set $p 33
+
+set $a 38
+set $s 39
+set $d 40
+set $f 41
+set $g 42
+set $h 43
+set $j 44
+set $k 45
+set $l 46
+
+set $z 52
+set $x 53
+set $c 54
+set $v 55
+set $b 56
+set $n 57
+set $m 58
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+#
+# This requires "sudo apt install xbacklight".  Also see
+# https://askubuntu.com/questions/715306/xbacklight-no-outputs-have-backlight-property-no-sys-class-backlight-folder
+#
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20
 
@@ -46,20 +85,20 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindcode $mod+Shift+$q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindcode $mod+$d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindcode $mod+$h focus left
+bindcode $mod+$j focus down
+bindcode $mod+$k focus up
+bindcode $mod+$l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -68,10 +107,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindcode $mod+Shift+$h move left
+bindcode $mod+Shift+$j move down
+bindcode $mod+Shift+$k move up
+bindcode $mod+Shift+$l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -80,18 +119,18 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+b split h
+bindcode $mod+$b split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindcode $mod+$v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindcode $mod+$f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindcode $mod+$s layout stacking
+bindcode $mod+$w layout tabbed
+bindcode $mod+$e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -100,7 +139,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindcode $mod+$a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -122,26 +161,16 @@ set $ws10 "10"
 bindsym $mod+Mod1+r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
 # switch to workspace
-# bindsym $mod+1 workspace number $ws1
-# bindsym $mod+2 workspace number $ws2
-# bindsym $mod+3 workspace number $ws3
-# bindsym $mod+4 workspace number $ws4
-# bindsym $mod+5 workspace number $ws5
-# bindsym $mod+6 workspace number $ws6
-# bindsym $mod+7 workspace number $ws7
-# bindsym $mod+8 workspace number $ws8
-# bindsym $mod+9 workspace number $ws9
-# bindsym $mod+0 workspace number $ws10
-bindsym $mod+1 exec /home/misha/bin/workswitch -workspace 1
-bindsym $mod+2 exec /home/misha/bin/workswitch -workspace 2
-bindsym $mod+3 exec /home/misha/bin/workswitch -workspace 3
-bindsym $mod+4 exec /home/misha/bin/workswitch -workspace 4
-bindsym $mod+5 exec /home/misha/bin/workswitch -workspace 5
-bindsym $mod+6 exec /home/misha/bin/workswitch -workspace 6
-bindsym $mod+7 exec /home/misha/bin/workswitch -workspace 7
-bindsym $mod+8 exec /home/misha/bin/workswitch -workspace 8
-bindsym $mod+9 exec /home/misha/bin/workswitch -workspace 9
-bindsym $mod+0 exec /home/misha/bin/workswitch -workspace 10
+bindsym $mod+1 exec workswitch -workspace 1
+bindsym $mod+2 exec workswitch -workspace 2
+bindsym $mod+3 exec workswitch -workspace 3
+bindsym $mod+4 exec workswitch -workspace 4
+bindsym $mod+5 exec workswitch -workspace 5
+bindsym $mod+6 exec workswitch -workspace 6
+bindsym $mod+7 exec workswitch -workspace 7
+bindsym $mod+8 exec workswitch -workspace 8
+bindsym $mod+9 exec workswitch -workspace 9
+bindsym $mod+0 exec workswitch -workspace 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -156,11 +185,11 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindcode $mod+Shift+$c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindcode $mod+Shift+$r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindcode $mod+Shift+$e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -209,47 +238,31 @@ exec --no-startup-id xrandr --output eDP1 --mode 1920x1080
 # rely on syndaemon instead
 # Also disable two-finger scolling and emulated right-button (two-finger tap)
 #
-exec synclient PalmDetect=0 HorizTwoFingerScroll=1 TapButton2=0 VertTwoFingerScroll=1 VertEdgeScroll=0 TouchpadOff=0
-bindsym Control+mod1+l exec ~/.config/i3/lock-screen.sh
-bindsym $mod+t exec python3 /home/misha/bin/touchpadoff.py toggle && $refresh-i3-status
-# bindsym $mod+y exec python3 /home/misha/bin/touchpadoff.py off && $refresh-i3-status
-bindsym $mod+y exec /home/misha/bin/workswitch -touchpadoff toggle && $refresh-i3-status
-bindsym $mod+m exec xdotool mousemove 9999 9999
-
-#
 # shortcuts for switching input methods
 # use xev to get the key symbols for each key
 #
-# for this to work, you need to use ibus-setup and set
-# "share the same input method among all applications"
-#
-# bindsym $mod+m exec --no-startup-id /home/misha/bin/internal-monitor-only.sh
-bindsym Shift+XF86Display exec --no-startup-id /home/misha/bin/internal-monitor-only.sh
-bindsym XF86Display exec --no-startup-id /home/misha/bin/toggle-monitor-output.sh
-#
-# TODO:
-# https://stackoverflow.com/questions/22031653/how-to-change-ibus-input-method-in-python#22037150
-# Conditional handling of muhenkan key:
-#
-# If the IME is enabled, switch to romaji (normal) input
-# If the IME is disabled, enable the IME and switch to romaji (normal) input
-# Otherwise, do nothing.
-#
-# The general idea is to get to the English keyboard layout in one key press.
-#
-bindsym Muhenkan exec /home/misha/bin/workswitch -ibusengine xkb:jp::jpn  && $refresh-i3-status
-bindsym Henkan exec /home/misha/bin/workswitch -ibusengine  table:russian-ELECOM  && $refresh-i3-status
-bindsym Hiragana_Katakana exec /home/misha/bin/workswitch -ibusengine mozc-jp  && $refresh-i3-status
+exec synclient PalmDetect=0 HorizTwoFingerScroll=1 TapButton2=0 VertTwoFingerScroll=1 VertEdgeScroll=0 TouchpadOff=0
+bindcode Control+mod1+l exec lock-screen
+bindcode $mod+$t exec workswitch -touchpadoff toggle02 && $refresh-i3-status
+bindcode $mod+Shift+$t exec workswitch -touchpadoff toggle01 && $refresh-i3-status
+bindcode $mod+$m exec xdotool mousemove 9999 9999
+
+# bindsym $mod+m exec --no-startup-id internal-monitor-only.sh
+bindsym Shift+XF86Display exec --no-startup-id internal-monitor-only.sh
+bindsym XF86Display exec --no-startup-id toggle-monitor-output.sh
+
+bindsym Muhenkan exec workswitch -inputlanguage english && $refresh-i3-status
+bindsym Henkan exec workswitch -inputlanguage russian && $refresh-i3-status
+bindsym Hiragana_Katakana exec workswitch -inputlanguage japanese && $refresh-i3-status
 
 # Disable/enable screensaver
 bindsym Control+mod1+9 exec xset s off
 bindsym Control+mod1+0 exec xset s on
 
-exec dropbox-restart.sh
+# exec dropbox-restart.sh
 exec rescuetime
 exec syndaemon -i 2.0 -d -t -K  # not working for some reason???
 exec ~/bin/elecom_keyboard.sh
-
 
 #
 # https://gist.github.com/dianjuar/ee774561a8bc02b077989bc17424a19f
@@ -261,4 +274,3 @@ bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(d
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
-
