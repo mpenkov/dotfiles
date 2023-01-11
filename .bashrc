@@ -47,6 +47,9 @@ fi
 #
 # http://docs.python-guide.org/en/latest/dev/virtualenvs/
 #
+if [ -f ~/.local/bin/virtualenvwrapper.sh ]; then
+    source ~/.local/bin/virtualenvwrapper.sh
+fi
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 export WORKON_HOME=$HOME/envs
 export PATH=~/.local/bin:$PATH
