@@ -242,7 +242,7 @@ exec --no-startup-id xrandr --output eDP1 --mode 1920x1080
 # use xev to get the key symbols for each key
 #
 exec synclient PalmDetect=0 HorizTwoFingerScroll=1 TapButton2=0 VertTwoFingerScroll=1 VertEdgeScroll=0 TouchpadOff=0
-bindcode Control+mod1+l exec lock-screen
+bindcode Mod1+Control+$l exec ~/.config/i3/lock-screen.sh
 bindcode $mod+$t exec workswitch -touchpadoff toggle02 && $refresh-i3-status
 bindcode $mod+Shift+$t exec workswitch -touchpadoff toggle01 && $refresh-i3-status
 bindcode $mod+$m exec xdotool mousemove 9999 9999
