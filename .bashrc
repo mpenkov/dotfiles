@@ -52,7 +52,7 @@ if [ -f ~/.local/bin/virtualenvwrapper.sh ]; then
 fi
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 export WORKON_HOME=$HOME/envs
-export PATH=~/.local/bin:$PATH
+export PATH=~/.local/bin:~/go/bin:$PATH
 
 #
 # https://dev.to/gonedark/tweak-your-terminal-for-git
